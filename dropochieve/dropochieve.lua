@@ -11,6 +11,7 @@ function dropochieve_OnLoad()
 	this:RegisterEvent("CHAT_MSG_SYSTEM");
 	DEFAULT_CHAT_FRAME:AddMessage("|cFF"..dropochieve["Color"]..dropochieve["Name"].." loaded. Version "..dropochieve["Version"]..".|r");
 	dropochieve["target"] = nil
+	dropochieve["target_fails"] = false;
 	dropochieve["cooldown"] = 0
 	dropochieve["achievements_cur"] = 0
 	dropochieve["Achievements"] =
@@ -168,6 +169,17 @@ end
 function dropochieve_OnEvent(event,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8)
 	if string.find(arg1,"'s achievements:") then
 		dropochieve["target"] = string.sub(arg1,1,string.find(arg1,"'s achievements")-1);
+		dropochieve["target_fails"] = false;
+		dropochieve["frame_close"]:SetButtonState("NORMAL",false);
+		dropochieve["frame_main"]:Show();
+		for i,v in pairs(dropochieve["Achievements"]) do
+			v["FrameParent"]:SetAlpha(0.3);
+		end
+		dropochieve["frame_title"]:SetText("|cFFFFFF00"..dropochieve["target"].."'s Achievements:|r");
+		return
+	elseif string.find(arg1,"Listing achievements...") then
+		dropochieve["target"] = UnitName("player");
+		dropochieve["target_fails"] = true;
 		dropochieve["frame_close"]:SetButtonState("NORMAL",false);
 		dropochieve["frame_main"]:Show();
 		for i,v in pairs(dropochieve["Achievements"]) do
@@ -177,7 +189,7 @@ function dropochieve_OnEvent(event,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8)
 		return
 	end
     for i,v in pairs(dropochieve["Achievements"]) do
-        if string.find(arg1,v["name"]) then
+        if string.find(arg1,v["name"]) and not string.find(arg1,"(failed)") then
         	v["FrameParent"]:SetAlpha(1);
 			break;
         end
