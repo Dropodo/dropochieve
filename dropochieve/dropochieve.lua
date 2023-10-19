@@ -16,71 +16,85 @@ function dropochieve_OnLoad()
 	dropochieve["Achievements"] =
 	{
 		["FrameIronbones"] = {
+			["ID"]=1,
 			["name"]="%[Iron Bones%]",
 			["icon"]="Trade_BlackSmithing",
 			["description"]="Reach level 60 without at\nany point repairing the\ndurability of an item."
 		},
 		["FrameTimeismoney"] = {
+			["ID"]=2,
 			["name"]="%[Time is money%]",
 			["icon"]="INV_Misc_Coin_05",
 			["description"]="Reach level 60 without at\nany point using the auction\nhouse to buy an item."
 		},
 		["FrameKillertrader"] = {
+			["ID"]=3,
 			["name"]="%[Killer Trader%]",
 			["icon"]="INV_Misc_Coin_03",
 			["description"]="Reach level 60 without at\nany point using the auction\nhouse to sell an item."
 		},
 		["FramePrecious"] = {
+			["ID"]=4,
 			["name"]="%[My precious!%]",
 			["icon"]="INV_Box_01",
 			["description"]="Reach level 60 without at\nany point trading goods or\nmoney with another player."
 		},
 		["FrameMail"] = {
+			["ID"]=5,
 			["name"]="%[Special Deliveries%]",
 			["icon"]="INV_Crate_03",
 			["description"]="Reach level 60 without at\nany point getting goods\nor money from the mail."
 		},
 		["FrameOnlyfan"] = {
+			["ID"]=6,
 			["name"]="%[Only Fan%]",
 			["icon"]="INV_Pants_Wolf",
 			["description"]="Reach level 60 without at\nany point equipping anything\nelse than weapons, shields,\nammos, tabards or bags."
 		},
 		["FrameHelpyourself"] = {
+			["ID"]=7,
 			["name"]="%[Help Yourself%]",
 			["icon"]="INV_Misc_Note_02",
 			["description"]="Reach level 60 without at\nany point turning in a quest\n(class and profession quests\nallowed)."
 		},
 		["FrameMisterwhite"] = {
+			["ID"]=8,
 			["name"]="%[Mister White%]",
 			["icon"]="INV_Shirt_White_01",
 			["description"]="Reach level 60 without at\nany point equipping an\nuncommon or greater\nquality item (only white\nand grey items allowed)."
 		},
 		["FrameMarathonrunner"] = {
+			["ID"]=9,
 			["name"]="%[Marathon Runner%]",
 			["icon"]="INV_Gizmo_RocketBoot_01",
 			["description"]="Reach level 60 without at\nany point learning a riding skill."
 		},
 		["FrameSouthpark"] = {
+			["ID"]=10,
 			["name"]="%[That Which Has No Life%]",
 			["icon"]="Ability_Hunter_Pet_Boar",
 			["description"]="Reach level 60 only by killing boars."
 		},
 		["FrameSofthands"] = {
+			["ID"]=11,
 			["name"]="%[Soft Hands%]",
 			["icon"]="Spell_Holy_LayOnHands",
 			["description"]="Reach level 60 without at\nany point learning any\nprimary profession."
 		},
 		["FrameLonewolf"] = {
+			["ID"]=12,
 			["name"]="%[Lone Wolf%]",
 			["icon"]="Spell_Nature_SpiritWolf",
 			["description"]="Reach level 60 without at\nany point grouping with\nother players."
 		},
 		["FrameGrounded"] = {
+			["ID"]=13,
 			["name"]="%[Grounded%]",
 			["icon"]="Spell_Nature_StrengthOfEarthTotem02",
 			["description"]="Reach level 60 without at\nany point using flying services."
 		},
 		["FrameSelfmade"] = {
+			["ID"]=14,
 			["name"]="%[Self%-made%]",
 			["icon"]="INV_Hammer_20",
 			["description"]="Reach level 60 without at\nany point equipping items\nthat you did not craft yourself."
@@ -125,7 +139,7 @@ function dropochieve_OnLoad()
 	for i,v in pairs(dropochieve["Achievements"]) do
 		-- parent frame for an individual achievement
 		parentFrame = CreateFrame("Frame",i.."Parent",dropochieve["frame_main"])
-		parentFrame:SetPoint("TOPLEFT",dropochieve["frame_main"],"TOPLEFT",dropochieve["subframegap"]["x"],-(dropochieve["subframesize"]["y"]+dropochieve["subframegap"]["y"])*(1+dropochieve["achievements_num"]));
+		parentFrame:SetPoint("TOPLEFT",dropochieve["frame_main"],"TOPLEFT",dropochieve["subframegap"]["x"],-(dropochieve["subframesize"]["y"]+dropochieve["subframegap"]["y"])*v["ID"]);
 		parentFrame:SetWidth(dropochieve["subframesize"]["x"]);
 		parentFrame:SetHeight(dropochieve["subframesize"]["y"]);
 		parentFrame:EnableMouse(true);
