@@ -1,0 +1,5 @@
+## Interface: 11200
+## Title: dropochieve
+## Notes: Makes inspecting WoW-HC achievements easier.
+dropochieve.lua
+dropochieve.xml

@@ -1,0 +1,15 @@
+<Ui>
+  <Frame name="dropochieveParent">
+    <Scripts>
+      <OnLoad>
+        dropochieve_OnLoad()
+      </OnLoad>
+      <OnEvent>
+        dropochieve_OnEvent(event,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8)
+      </OnEvent>
+      <OnUpdate>
+        dropochieve_OnUpdate()
+      </OnUpdate>
+    </Scripts>
+  </Frame>
+</Ui>
