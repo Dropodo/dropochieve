@@ -164,6 +164,7 @@ function dropochieve_OnLoad()
 		dropochieve["achievements_num"] = dropochieve["achievements_num"] + 1
 	end
 	dropochieve["frame_main"]:SetHeight((dropochieve["subframesize"]["y"]+dropochieve["subframegap"]["y"])*(1+dropochieve["achievements_num"]));
+	dropochieve["frame_main"]:Hide()
 end
 
 function dropochieve_OnEvent(event,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8)
