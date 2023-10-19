@@ -2,9 +2,6 @@ dropochieve = {};
 dropochieve["Name"] = "dropochieve";
 dropochieve["Color"] = "FFAA00";
 dropochieve["Version"] = "1.0";
-dropochieve["Immolate_Active"] = "";
-dropochieve["Immolate_Timer"] = 0;
-dropochieve["Immolate_Ticker"] = 0;
 dropochieve["Achievements"] = {};
 
 function dropochieve_OnLoad()
